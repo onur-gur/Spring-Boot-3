@@ -38,15 +38,15 @@ public class ModelServiceImpl implements ModelService {
     }
 
     @Override
-    public void create(CreateModelRequest createBrandRequest) {
-        brandBusinessRules.checkIfBrandNameExists(createBrandRequest.getName());
-        Model model = modelMapperService.forRequest().map(createBrandRequest, Model.class);
+    public void create(CreateModelRequest createModelRequest) {
+        brandBusinessRules.checkIfBrandIdExists(createModelRequest.getBrandId());
+        Model model = modelMapperService.forRequest().map(createModelRequest, Model.class);
         modelRepository.save(model);
     }
 
     @Override
-    public void update(UpdateModelRequest updateBrandRequest) {
-        Model model = modelMapperService.forRequest().map(updateBrandRequest, Model.class);
+    public void update(UpdateModelRequest updateModelRequest) {
+        Model model = modelMapperService.forRequest().map(updateModelRequest, Model.class);
         modelRepository.save(model);
     }
 

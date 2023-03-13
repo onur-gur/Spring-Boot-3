@@ -4,4 +4,5 @@ import com.project.spring.learn.entities.Model;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ModelRepository extends JpaRepository<Model, Long> {
+    Boolean existsByName(String name);
 }

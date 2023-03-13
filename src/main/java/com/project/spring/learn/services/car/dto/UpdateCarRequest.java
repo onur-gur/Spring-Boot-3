@@ -1,7 +1,9 @@
 package com.project.spring.learn.services.car.dto;
 
-import com.project.spring.learn.entities.Model;
 import com.project.spring.learn.entities.State;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,10 +14,11 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UpdateCarRequest {
-    private Long id;
-    private String plate;
+    @NotNull
+    @NotEmpty
+    @Min(value = 0)
     private BigDecimal dailyPrice;
-    private Integer modelYear;
+    @NotNull
+    @NotEmpty
     private State state;
-    private Model model;
 }
